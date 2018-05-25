@@ -6,8 +6,15 @@
     </head>
     <body>
         <div>
-            <h1><a href="">koki's blog</a></h1>
+            <h1>koki's blog</h1>
         </div>
+        {% for post in posts %}
+            <div>
+                <h1><a href="">{{ post.title }}</a></h1>
+                <p>{{ post.text|linebreaks }}</p>
+                <p>published: {{ post.published_date }}</p>
+            </div>
+        {% endfor %}
     </body>
 </html>
 

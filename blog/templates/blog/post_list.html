@@ -1,13 +1,6 @@
 <!DOCTYPE html>
 
-{% autoescape off %}
-
 {% load staticfiles %}
-
-{% static path-for-my-css %}
-
-{% endautoescape %}
-
 
 <head>
     <title>koki's blog</title>
@@ -15,6 +8,7 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="{% static 'css/blog.css' %}">
 </head>
+
 <body>
     <div class="page-header">
         <h1><a href="">koki's blog</a></h1>
@@ -22,17 +16,15 @@
     <div class="content container">
         <div class="row">
             <div class="col-md-8">
-                {% autoescape off %}
-                    {% for post in posts %}
-                        <div class="post">
-                            <h1><a href="">{{ post.title }}</a></h1>
-                            <p>{{ post.text|linebreaks }}</p>
-                            <div class="date">
-                                <p>published: {{ post.published_date }}</p>
-                            </div>
+                {% for post in posts %}
+                    <div class="post">
+                        <h1><a href="">{{ post.title }}</a></h1>
+                        <p>{{ post.text }}</p>
+                        <div class="date">
+                            <p>published: {{ post.published_date }}</p>
                         </div>
-                    {% endfor %}
-                {% endautoescape %}
+                    </div>
+                {% endfor %}
             </div>
         </div>
     </div>

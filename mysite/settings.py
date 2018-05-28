@@ -151,10 +151,6 @@ RAVEN_CONFIG = {
     # 'release': raven.fetch_git_sha(os.path.abspath(os.pardir)),
 }
 
-from raven import Client
- client = Client('https://300fa77326b04127ae4413c83d3b3b16:8f3ffdf3037249b1b2479a2b49cb7387@sentry.io/1214562')
+from raven.contrib.django.raven_compat.models import client
 
-try:
-     1 / 0
-except ZeroDivisionError:
-    client.captureException()
+client.captureException()

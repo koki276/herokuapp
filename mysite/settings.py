@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
-import raven
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -142,14 +141,3 @@ except ImportError:
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
-
-RAVEN_CONFIG = {
-     'dsn': 'https://300fa77326b04127ae4413c83d3b3b16:8f3ffdf3037249b1b2479a2b49cb7387@sentry.io/1214562',
-    # If you are using git, you can also automatically configure the
-    # release based on the git info.
-     'release': raven.fetch_git_sha(os.path.abspath(os.pardir)),
-}
-
-from raven.contrib.django.raven_compat.models import client
-
-client.captureException()

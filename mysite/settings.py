@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'blog',
+    'blog','raven.contrib.django.raven_compat',
+
 ]
 
 MIDDLEWARE = [
@@ -140,3 +141,20 @@ except ImportError:
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
+
+import raven
+
+RAVEN_CONFIG = {
+     'dsn': 'https://300fa77326b04127ae4413c83d3b3b16:8f3ffdf3037249b1b2479a2b49cb7387@sentry.io/1214562',
+    # If you are using git, you can also automatically configure the
+    # release based on the git info.
+    # 'release': raven.fetch_git_sha(os.path.abspath(os.pardir)),
+}
+
+from raven import Client
+ client = Client('https://300fa77326b04127ae4413c83d3b3b16:8f3ffdf3037249b1b2479a2b49cb7387@sentry.io/1214562')
+
+try:
+     1 / 0
+except ZeroDivisionError:
+    client.captureException()

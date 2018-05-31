@@ -1,20 +1,29 @@
+.list-header{
+    background-image: url("images/sunset.jpg");
+    background-size: cover;
+    height: 500px;
+    width: 100%;
+}
+
+.list-header h1{
+     text-align: center;
+    line-height: 500px;
+}
+
 .page-header {
     background-color: #ff9400;
     margin-top: 0;
-    padding: 20px 20px 20px 40px;
+    padding: 0 0 0 20px;
     width:100%;
     position: fixed;
     z-index: 10;
+    height: 50px;
 }
 
 .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
     color: #ffffff;
-    font-size: 36pt;
+    font-size: 20px;
     text-decoration: none;
-}
-
-.content {
-    margin-left: 40px;
 }
 
 h1, h2, h3, h4 {
@@ -46,8 +55,4 @@ h1, h2, h3, h4 {
 
 .post h1 a, .post h1 a:visited {
     color: #000000;
-}
-
-.row{
-    margin-top:150px;
 }
